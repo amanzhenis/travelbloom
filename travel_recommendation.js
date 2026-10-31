@@ -26,7 +26,7 @@ async function recommend(query) {
       const heading = document.createElement('h2'); heading.textContent = place.name;
       const description = document.createElement('p'); description.textContent = place.description;
       const visit = document.createElement('a'); visit.href = 'contact.html'; visit.textContent = 'Plan a visit ↗';
-      body.append(heading, description, visit); card.append(image, body); results.append(card);
+      body.append(heading, description, visit); if (place.credit) { const credit = document.createElement("a"); credit.href = place.creditUrl; credit.textContent = place.credit; credit.style.cssText = "display:block;font-size:9px;margin-top:12px"; body.append(credit); } card.append(image, body); results.append(card);
     }
   } catch (error) { if (current === request) status.textContent = 'Recommendations could not load. Please try again.'; }
 }
@@ -38,3 +38,4 @@ if (initial) { search.value = initial; recommend(initial); }
 const contact = document.querySelector('#contact-form');
 if (contact) contact.addEventListener('submit', event => { event.preventDefault(); const fields = new FormData(contact); const link = document.querySelector('#email-draft'); link.href = 'mailto:travelbloom@example.com?subject=' + encodeURIComponent('Travel inquiry from ' + fields.get('name')) + '&body=' + encodeURIComponent(fields.get('message') + '\n\nReply to: ' + fields.get('email')); link.hidden = false; document.querySelector('#contact-status').textContent = 'Your draft is ready. This demo does not send messages automatically.'; });
 document.querySelectorAll('nav a').forEach(link => { if (link.pathname === location.pathname || (location.pathname.endsWith('/') && link.pathname.endsWith('index.html'))) link.setAttribute('aria-current', 'page'); });
+

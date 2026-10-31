@@ -13,9 +13,11 @@
   ],
   "temples": [
     {
-      "name": "Temple architecture, India",
-      "description": "Discover intricate architecture and explore the cultural stories behind sacred places.",
-      "imageUrl": "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=900&q=85"
+      "name": "Angkor Wat, Cambodia",
+      "description": "Explore the remarkable architecture of the Angkor Wat temple complex in Cambodia.",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Angkor_Wat.jpg/1024px-Angkor_Wat.jpg",
+      "credit": "Photo: Bjørn Christian Tørrissen / Wikimedia Commons · CC BY-SA 4.0 · displayed cropped",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Angkor_Wat.jpg"
     },
     {
       "name": "Kyoto temples, Japan",
