@@ -6,7 +6,7 @@ const welcome = document.querySelector('#welcome');
 let request = 0;
 async function recommend(query) {
   const keyword = query.trim().toLowerCase();
-  if (!results) { location.href = 'index.html?q=' + encodeURIComponent(keyword); return; }
+  if (!results) { location.href = 'home.html?q=' + encodeURIComponent(keyword); return; }
   const current = ++request;
   results.replaceChildren(); welcome.hidden = true;
   if (!keyword) { status.textContent = 'Enter a destination or try beaches, temples or countries.'; return; }
@@ -38,6 +38,7 @@ if (initial) { search.value = initial; recommend(initial); }
 const contact = document.querySelector('#contact-form');
 if (contact) contact.addEventListener('submit', event => { event.preventDefault(); const fields = new FormData(contact); const link = document.querySelector('#email-draft'); link.href = 'mailto:travelbloom@example.com?subject=' + encodeURIComponent('Travel inquiry from ' + fields.get('name')) + '&body=' + encodeURIComponent(fields.get('message') + '\n\nReply to: ' + fields.get('email')); link.hidden = false; document.querySelector('#contact-status').textContent = 'Your draft is ready. This demo does not send messages automatically.'; });
 document.querySelectorAll('nav a').forEach(link => { if (link.pathname === location.pathname || (location.pathname.endsWith('/') && link.pathname.endsWith('index.html'))) link.setAttribute('aria-current', 'page'); });
+
 
 
 
