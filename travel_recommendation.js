@@ -12,7 +12,7 @@ async function recommend(query) {
   if (!keyword) { status.textContent = 'Enter a destination or try beaches, temples or countries.'; return; }
   status.textContent = 'Finding your next adventure…';
   try {
-    const response = await fetch('./travel_recommendation_api.json');
+    const response = await fetch('./travel_recommendation_api.json?v=2');
     if (!response.ok) throw new Error('Unable to load recommendations');
     const data = await response.json();
     if (current !== request) return;
@@ -38,4 +38,5 @@ if (initial) { search.value = initial; recommend(initial); }
 const contact = document.querySelector('#contact-form');
 if (contact) contact.addEventListener('submit', event => { event.preventDefault(); const fields = new FormData(contact); const link = document.querySelector('#email-draft'); link.href = 'mailto:travelbloom@example.com?subject=' + encodeURIComponent('Travel inquiry from ' + fields.get('name')) + '&body=' + encodeURIComponent(fields.get('message') + '\n\nReply to: ' + fields.get('email')); link.hidden = false; document.querySelector('#contact-status').textContent = 'Your draft is ready. This demo does not send messages automatically.'; });
 document.querySelectorAll('nav a').forEach(link => { if (link.pathname === location.pathname || (location.pathname.endsWith('/') && link.pathname.endsWith('index.html'))) link.setAttribute('aria-current', 'page'); });
+
 
